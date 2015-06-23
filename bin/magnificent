@@ -1,0 +1,35 @@
+#!/usr/bin/env node
+'use strict'
+var colors = require('colors');
+var argv = require('optimist')
+  .usage()
+  .options('host', {
+    default: 'http://localhost',
+    describe: 'Magnificent server host'
+  })
+  .options('port', {
+    default: '12345',
+    describe: 'Magnificent server port'
+  })
+  .options('interval', {
+    default: '15',
+    describe: 'Magnificent server monitor interval(in seconds)'
+  })
+  .argv;
+
+if(argv.help) {
+  console.log([
+    'Magnificent Server monitor',
+    'Usage: magnificent-monitor --host [host] --port [port] --interval [interval]'.green
+  ].join('\n'))
+  return;
+}
+
+var options = {
+  host : argv.host,
+  port : argv.port,
+  interval : argv.interval
+}
+
+var magnificent = require('../node');
+magnificent(options);
