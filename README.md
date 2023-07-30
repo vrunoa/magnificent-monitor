@@ -6,7 +6,7 @@
 # Usage
 **command-line**
 ```javascript
-  npm install -g magnificent-monitor```
+  npm install -g magnificent-monitor
   magnificent-monitor --host [host] --port [port] --interval
 ```
 
